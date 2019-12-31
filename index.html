@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversions integer division</title>
+</head>
+<body>
+    <button onclick="myFunction()">Test stringToIntenger</button>
+
+    <script>
+        function myFunction() {
+            alert(stringToIntenger("12345"));
+            alert(stringToIntenger("-12345"));
+        }
+        /*Problem 1: Given a string representing a positive int (whole number), return the numerical value 
+        example:  Given stringToIntenger(string s) "1234", return 1234*/
+        function stringToIntenger(s)
+        {
+            var result = 0;
+            var sign = 1;
+            if (s.charAt(0) == '-') {
+                sign = -1;
+                s = s.substring(1);
+            }
+            for(i=0;i<s.length;i++)
+            {
+                result*=10;
+                result+=s.charAt(i)-'0';
+            }
+            return sign*result;
+        }
+        /*
+        
+        */
+
+    </script>
+    <script>
+        function myFunction2() {
+            alert(integerToString(12345));
+            alert(integerToString(-2345));
+        }
+        /*Problem 2: Given a positive integer (whole number - no decimals), convert it into string.
+        For example: given n = 1234, return string "1234"*/
+        function integerToString(n) {
+            var result = "";
+            if (n == 0) {
+                return "0";
+            }
+            var sign=""
+            if (n < 0) {
+                n = -n;
+                sign = "-";
+            }
+            while (n > 0) {
+                
+                digit = n % 10;
+                n =Math.floor( n / 10);
+                result = digit + result;
+            }
+            return sign+result;
+        }
+        /*
+        
+        */
+
+    </script>
+    <button onclick="myFunction2()">Test2 </button>
+
+    
+</body>
+</html>
